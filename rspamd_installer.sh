@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# https://github.com/hiandras/rspamd-install
+# https://github.com/hiandras/rspamd_installer
 #
 # Installer for rspamd
 # More info: https://rspamd.com/
@@ -253,3 +253,13 @@ fi
 
 echo
 echo "DONE"
+echo
+echo "Usage:"
+echo
+echo "Rspamd webgui: https://${FQDN}/rspamd/"
+echo
+echo "Webmin: https://${FQDN}:10000"
+echo
+echo "Munin: https://${FQDN}/munin/"
+echo
+
