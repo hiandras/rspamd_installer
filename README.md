@@ -2,6 +2,7 @@
 Installer script for Rspamd
 
 The script will install Rspamd spam filter on a minimal install Debian.
+It will act as a spam filter, which will relay all mails to a destination server.
 It will also install the necessary software and some addition optional component.
 
 - basic linux tools
@@ -18,3 +19,6 @@ It will also install the necessary software and some addition optional component
 wget https://github.com/hiandras/rspamd_installer/blob/master/rspamd_installer.sh
 
 Make it executable and run it!
+
+When installation complete, you should add your own domain names to postfix's
+/etc/postfix/transport file, run postmap /etc/postfix/transport and restart postfix service.
