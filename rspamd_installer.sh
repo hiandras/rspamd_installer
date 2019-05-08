@@ -262,4 +262,7 @@ echo "Webmin: https://${FQDN}:10000"
 echo
 echo "Munin: https://${FQDN}/munin/"
 echo
+echo "Now, add your own domain names to postfix's /etc/postfix/transport file,"
+echo "run postmap /etc/postfix/transport and service postfix restart."
+echo
 
