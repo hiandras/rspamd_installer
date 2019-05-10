@@ -16,7 +16,7 @@ It will also install the necessary software and some addition optional component
 
 <b>Using the installer:</b>
 
-wget https://github.com/hiandras/rspamd_installer/blob/master/rspamd_installer.sh
+wget https://raw.githubusercontent.com/hiandras/rspamd_installer/master/rspamd_installer.sh
 
 Make it executable and run it!
 
