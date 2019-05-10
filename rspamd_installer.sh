@@ -251,6 +251,10 @@ service apache2 reload
 sed -i "s/\/rspamd\//https:\/\/${FQDN}\/rspamd\//" /var/www/html/index.html
 fi
 
+if [ "$FQDN" = '' ]; then
+FQDN="your-ip-address"
+fi
+
 echo
 echo "DONE"
 echo
@@ -265,4 +269,3 @@ echo
 echo "Now, add your own domain names to postfix's /etc/postfix/transport file,"
 echo "run postmap /etc/postfix/transport and service postfix restart."
 echo
-
