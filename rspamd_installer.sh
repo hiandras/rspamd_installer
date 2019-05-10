@@ -255,6 +255,7 @@ if [ "$FQDN" = '' ]; then
 FQDN="$(hostname -I)"
 fi
 
+service rspamd restart
 echo
 echo "DONE"
 echo
