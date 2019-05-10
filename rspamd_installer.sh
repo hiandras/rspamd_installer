@@ -22,8 +22,7 @@ echo "- webmin (optional)"
 echo "- munin (optional)"
 
 echo
-echo "1. step:"
-echo "Install basic linux tools"
+echo "Step 1: Install basic linux tools"
 echo
 read -p "Press enter to continue"
 apt-get update
@@ -35,8 +34,7 @@ apt-get install dbus --assume-yes
 timedatectl set-ntp true
 
 echo
-echo "2. step:"
-echo "Install required modules (unbound, redis-server, clamav)"
+echo "Step 2: Install required modules (unbound, redis-server, clamav)"
 echo
 read -p "Press enter to continue"
 apt-get install unbound --assume-yes
@@ -46,8 +44,7 @@ apt-get install redis-server --assume-yes
 apt-get install clamav --assume-yes
 
 echo
-echo "3. step:"
-echo "Install apache2 and configure it"
+echo "Step 3: Install apache2 and configure it"
 echo
 read -p "Press enter to continue"
 apt-get install apache2 --assume-yes
@@ -69,8 +66,7 @@ echo "</body>" >> /var/www/html/index.html
 echo "</html>" >> /var/www/html/index.html
 
 echo
-echo "4. step:"
-echo "Install rspamd itself and run configwizard"
+echo "Step 4: Install rspamd itself and run configwizard"
 echo
 read -p "Press enter to continue"
 wget -O- https://rspamd.com/apt-stable/gpg.key | apt-key add -
@@ -81,8 +77,7 @@ apt-get --no-install-recommends install rspamd --assume-yes
 rspamadm configwizard
 
 echo
-echo "5. step:"
-echo "Add additional components (anitvirus, whitelist, blacklist, historyredis, etc)"
+echo "Step 5: Add additional components (anitvirus, whitelist, blacklist, historyredis, etc)"
 echo
 read -p "Press enter to continue"
 echo "clamav {servers = \"127.0.0.1:3310\";}" > /etc/rspamd/local.d/antivirus.conf
@@ -123,7 +118,7 @@ echo "local_wl_from { type = \"from\"; map = \"\$LOCAL_CONFDIR/local.d/local_wl_
 echo "enabled = true;" > /etc/rspamd/local.d/mx_check.conf
 
 echo
-echo "6. step: Install postfix"
+echo "Step 6: Install postfix"
 echo
 read -p "Do you want to install Postifx? [Y/n]: " -e POSTFIX
 if [[ "$POSTFIX" = 'y' || "$POSTFIX" = 'Y' || "$POSTFIX" = '' ]]; then
@@ -158,7 +153,7 @@ service postfix restart
 fi
 
 echo
-echo "7. step: Install Shorewall"
+echo "Step 7: Install Shorewall"
 echo
 read -p "Do you want to install Shorewall? [Y/n]: " -e SHOREWALL
 if [[ "$SHOREWALL" = 'y' || "$SHOREWALL" = 'Y' || "$SHOREWALL" = '' ]]; then
@@ -180,7 +175,7 @@ service shorewall start
 fi
 
 echo
-echo "8. step: Install webmin"
+echo "Step 8: Install webmin"
 echo
 read -p "Do you want to install webmin? [Y/n]: " -e WEBMIN
 if [[ "$WEBMIN" = 'y' || "$WEBMIN" = 'Y' || "$WEBMIN" = '' ]]; then
@@ -194,7 +189,7 @@ apt-get install webmin --assume-yes
 fi
 
 echo
-echo "9. step: Install munin"
+echo "Step 9: Install munin"
 echo
 read -p "Do you want to install munin? [Y/n]: " -e MUNIN
 if [[ "$MUNIN" = 'y' || "$MUNIN" = 'Y' || "$MUNIN" = '' ]]; then
@@ -205,7 +200,7 @@ service apache2 restart
 fi
 
 echo
-echo "10. step: Install letsencrypt"
+echo "Step 10: Install letsencrypt"
 echo
 read -p "Do you want to install Letsencrypt? [Y/n]: " -e LETSENCRYPT
 if [[ "$LETSENCRYPT" = 'y' || "$LETSENCRYPT" = 'Y' || "$LETSENCRYPT" = '' ]]; then
