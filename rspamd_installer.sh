@@ -252,7 +252,7 @@ sed -i "s/\/rspamd\//https:\/\/${FQDN}\/rspamd\//" /var/www/html/index.html
 fi
 
 if [ "$FQDN" = '' ]; then
-FQDN="your-ip-address"
+FQDN="$(hostname -I)"
 fi
 
 echo
