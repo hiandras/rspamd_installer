@@ -213,7 +213,7 @@ if [[ "$LETSENCRYPT" = 'y' || "$LETSENCRYPT" = 'Y' || "$LETSENCRYPT" = '' ]]; th
 apt-get update
 apt-get install dehydrated --assume-yes
 apt-get install dehydrated-apache2 --assume-yes
-clear
+echo
 read -p "Domain name for certificate? " -e FQDN
 echo $FQDN > /etc/dehydrated/domains.txt
 /usr/bin/dehydrated --cron
