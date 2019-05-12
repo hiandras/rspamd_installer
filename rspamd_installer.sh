@@ -17,9 +17,9 @@ echo "- rspamd required modules (unbound, redis-server, clamav)"
 echo "- apache2 web server"
 echo "- postfix mail server (optional)"
 echo "- shorewall firewall (optional)"
-echo "- letsencrypt certificate (optional)"
 echo "- webmin (optional)"
 echo "- munin (optional)"
+echo "- letsencrypt certificate (optional)"
 
 echo
 echo "Step 1: Install basic linux tools"
