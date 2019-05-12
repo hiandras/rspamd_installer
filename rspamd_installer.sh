@@ -253,7 +253,10 @@ sed -i "s/\/rspamd\//https:\/\/${FQDN}\/rspamd\//" /var/www/html/index.html
 fi
 
 if [ "$FQDN" = '' ]; then
-FQDN="$(hostname -I)"
+FQDN="http://$(hostname -I)"
+FQDN=${FQDN/ /}
+else
+FQDN="https://$FQDN"
 fi
 
 service rspamd restart
@@ -262,11 +265,11 @@ echo "DONE"
 echo
 echo "Usage:"
 echo
-echo "Rspamd webgui: https://${FQDN}/rspamd/"
+echo "Rspamd webgui: ${FQDN}/rspamd/"
 echo
-echo "Webmin: https://${FQDN}:10000"
+echo "Webmin: ${FQDN}:10000"
 echo
-echo "Munin: https://${FQDN}/munin/"
+echo "Munin: ${FQDN}/munin/"
 echo
 echo "Now, add your own domain names to postfix's /etc/postfix/transport file,"
 echo "run postmap /etc/postfix/transport and service postfix restart."
