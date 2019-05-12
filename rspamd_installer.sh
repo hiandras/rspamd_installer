@@ -266,9 +266,7 @@ echo
 echo "Usage:"
 echo
 echo "Rspamd webgui: ${FQDN}/rspamd/"
-echo
 echo "Webmin: ${FQDN}:10000"
-echo
 echo "Munin: ${FQDN}/munin/"
 echo
 echo "Now, add your own domain names to postfix's /etc/postfix/transport file,"
