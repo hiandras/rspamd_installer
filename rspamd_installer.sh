@@ -74,6 +74,10 @@ echo "deb http://rspamd.com/apt-stable/ $(lsb_release -c -s) main" > /etc/apt/so
 echo "deb-src [arch=amd64] http://rspamd.com/apt-stable/ $(lsb_release -c -s) main" >> /etc/apt/sources.list.d/rspamd.list
 apt-get update
 apt-get --no-install-recommends install rspamd --assume-yes
+if ! [ -d "/etc/rspamd" ]; then
+echo "There was an error installing Rspamd."
+exit 1
+fi
 rspamadm configwizard
 
 echo
