@@ -105,8 +105,8 @@ echo "spam_header = \"X-Spam\"; # Use the specific spam header" >> /etc/rspamd/l
 echo "reject_message = \"Spam message rejected\"; # Use custom rejection message" >> /etc/rspamd/local.d/worker-proxy.inc
 echo "use = [\"x-spamd-bar\", \"x-spam-level\", \"authentication-results\"];" >> /etc/rspamd/local.d/milter_headers.conf
 echo "authenticated_headers = [\"authentication-results\"];" >> /etc/rspamd/local.d/milter_headers.conf
-touch /etc/rspamd/local.d/local_bl_from.map.inc
-chmod o+w /etc/rspamd/local.d/local_bl_from.map.inc
+touch /etc/rspamd/local.d/local_bl_ip.map.inc
+chmod o+w /etc/rspamd/local.d/local_bl_ip.map.inc
 touch /etc/rspamd/local.d/local_bl_from.map.inc
 chmod o+w /etc/rspamd/local.d/local_bl_from.map.inc
 touch /etc/rspamd/local.d/local_bl_mailfrom.map.inc
@@ -118,7 +118,7 @@ chmod o+w /etc/rspamd/local.d/local_wl_mailfrom.map.inc
 touch /etc/rspamd/local.d/local_wl_from.map.inc
 chmod o+w /etc/rspamd/local.d/local_wl_from.map.inc
 echo "# Blacklists" > /etc/rspamd/local.d/multimap.conf
-echo "local_bl_ip { type = \"ip\"; map = \"\$LOCAL_CONFDIR/local.d/local_bl.map.inc\"; symbol = \"LOCAL_BL_IP\"; description = \"Local IP blacklist\";score = 99;}" >> /etc/rspamd/local.d/multimap.conf
+echo "local_bl_ip { type = \"ip\"; map = \"\$LOCAL_CONFDIR/local.d/local_bl_ip.map.inc\"; symbol = \"LOCAL_BL_IP\"; description = \"Local IP blacklist\";score = 99;}" >> /etc/rspamd/local.d/multimap.conf
 echo "local_bl_mailfrom { type = \"from\"; map = \"\$LOCAL_CONFDIR/local.d/local_bl_mailfrom.map.inc\"; symbol = \"LOCAL_BL_MAILFROM\"; description = \"Local MAILFROM blacklist\";score = 99;}" >> /etc/rspamd/local.d/multimap.conf
 echo "local_bl_from { type = \"header\"; header=\"from\";  map = \"\$LOCAL_CONFDIR/local.d/local_bl_from.map.inc\"; symbol = \"LOCAL_BL_FROM\"; description = \"Local FROM blacklist\";score = 99;}" >> /etc/rspamd/local.d/multimap.conf
 echo "# Whitelists" >> /etc/rspamd/local.d/multimap.conf
