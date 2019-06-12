@@ -168,7 +168,6 @@ echo
 read -p "Do you want to install Shorewall? [Y/n]: " -e SHOREWALL
 if [[ "$SHOREWALL" = 'y' || "$SHOREWALL" = 'Y' || "$SHOREWALL" = '' ]]; then
 apt-get install shorewall --assume-yes
-mkdir /etc/shorewall/zones
 cp /usr/share/doc/shorewall/examples/one-interface/interfaces /etc/shorewall
 cp /usr/share/doc/shorewall/examples/one-interface/policy /etc/shorewall
 cp /usr/share/doc/shorewall/examples/one-interface/rules /etc/shorewall
