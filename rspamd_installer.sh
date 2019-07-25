@@ -172,14 +172,16 @@ cp /usr/share/doc/shorewall/examples/one-interface/interfaces /etc/shorewall
 cp /usr/share/doc/shorewall/examples/one-interface/policy /etc/shorewall
 cp /usr/share/doc/shorewall/examples/one-interface/rules /etc/shorewall
 cp /usr/share/doc/shorewall/examples/one-interface/zones /etc/shorewall
-echo "ACCEPT\tnet\tfw\ttcp\t22" >>/etc/shorewall/rules
-echo "ACCEPT\tnet\tfw\ttcp\t25" >>/etc/shorewall/rules
-echo "ACCEPT\tnet\tfw\ttcp\t80" >>/etc/shorewall/rules
-echo "ACCEPT\tnet\tfw\ttcp\t443" >>/etc/shorewall/rules
-echo "ACCEPT\tnet\tfw\ttcp\t4949" >>/etc/shorewall/rules
-echo "ACCEPT\tnet\tfw\ttcp\t10000" >>/etc/shorewall/rules
-echo "ACCEPT\tnet\tfw\ticmp" >>/etc/shorewall/rules
+echo -e "ACCEPT\tnet\tfw\ttcp\t22" >>/etc/shorewall/rules
+echo -e "ACCEPT\tnet\tfw\ttcp\t25" >>/etc/shorewall/rules
+echo -e "ACCEPT\tnet\tfw\ttcp\t80" >>/etc/shorewall/rules
+echo -e "ACCEPT\tnet\tfw\ttcp\t443" >>/etc/shorewall/rules
+echo -e "ACCEPT\tnet\tfw\ttcp\t4949" >>/etc/shorewall/rules
+echo -e "ACCEPT\tnet\tfw\ttcp\t10000" >>/etc/shorewall/rules
+echo -e "ACCEPT\tnet\tfw\ticmp" >>/etc/shorewall/rules
 sed -i 's/Ping(DROP)/#Ping(DROP)/' /etc/shorewall/rules
+ETHVAR="$(ip link | awk -F: '$0 !~ "lo|vir|wl|^[^0-9]"{print $2;getline}')"
+sed -i "s/eth0/$ETHVAR/" /etc/shorewall/interfaces
 service shorewall start
 fi
 
