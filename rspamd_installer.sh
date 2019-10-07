@@ -182,6 +182,7 @@ echo -e "ACCEPT\tnet\tfw\ticmp" >>/etc/shorewall/rules
 sed -i 's/Ping(DROP)/#Ping(DROP)/' /etc/shorewall/rules
 ETHVAR="$(ip link | awk -F: '$0 !~ "lo|vir|wl|^[^0-9]"{print $2;getline}')"
 sed -i "s/eth0/$ETHVAR/" /etc/shorewall/interfaces
+systemctl enable shorewall
 service shorewall start
 fi
 
